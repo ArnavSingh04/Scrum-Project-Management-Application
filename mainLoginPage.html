@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="css/login_styles.css">
+        <script src="./js/users.js"></script>
+    </head>
+    <body>
+        
+        <div class="login-container">
+        <div class="wrapper">
+            <div class="header">
+                <img src="Picture1.png" alt="Swift Solutions Logo" class="company-logo">
+                <h2 class="motto">Code the Future, Today</h2>
+            </div>
+
+        <div class="login-box">
+            <h2>Login</h2>
+            <form>
+                <div class="input-box">
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember">
+                    <label>
+                        <input type="checkbox" name="remember"> Remember Me
+                    </label>
+                </div>
+                <button type="submit">Login</button>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <div class="admin-login">
+                    <a href="admin_login.html">Admin Login</a>
+                </div>
+            </form>
+        </div>
+        </div>
+        </div>
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="modalMessage">Login successful!</p>
+            </div>
+</div>
+    <script src="js/fontSize.js"></script>
+</body>
+</html>
+

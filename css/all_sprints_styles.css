@@ -1,0 +1,356 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/background_final.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333; /* Adjusted text color */
+    font-size: 1em; /* Set the base font size for scalability */
+}
+
+/* Header */
+header {
+    background-color: white;
+    color: white;
+    padding: 0.625em 0; /* Relative padding */
+}
+
+/* Updated nav bar styles */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white; /* White background */
+}
+
+.navbar ul li {
+    float: left;
+}
+
+.navbar ul li a {
+    display: block;
+    color: #333; /* Text color set to #333 */
+    text-align: center;
+    padding: 0.875em 1em; /* Relative padding */
+    text-decoration: none;
+    font-size: 1em; /* Scales with body font size */
+}
+
+.navbar ul li a:hover {
+    background-color: #ddd; /* Slightly lighter hover background */
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    z-index: 20000;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f2f2f2; /* Lighter shade for dropdown */
+    min-width: 10em; /* Relative width */
+    box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+}
+
+.dropdown-content a {
+    color: #333; /* Dropdown menu text color */
+    padding: 0.75em 1em; /* Relative padding */
+    text-decoration: none;
+    display: block;
+    font-size: 1em; /* Scales with body */
+}
+
+.dropdown-content a:hover {
+    background-color: #e0e0e0; /* Slightly lighter hover effect */
+}
+
+.show {
+    display: block;
+}
+
+/* Profile section */
+.profile-container {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+}
+
+.profile {
+    background-color: white;
+    color: #333;
+    padding: 0.75em 1em; /* Relative padding */
+    border: 1px solid #ccc;
+    border-radius: 0.3125em; /* Relative border-radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* Scales with body */
+}
+
+.profile:hover {
+    background-color: #ddd;
+}
+
+/* Welcome Message */
+.welcome-msg {
+    text-align: center;
+    margin: 1.25em; /* Relative margin */
+    color: #333; /* Ensure text matches overall color scheme */
+    font-size: 1em; /* Scales with body */
+}
+
+/* View toggle */
+.view-toggle {
+    text-align: center;
+    margin: 1.25em; /* Relative margin */
+}
+
+#toggleView {
+    padding: 0.625em 1.25em; /* Relative padding */
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 1em; /* Scales with body */
+}
+
+#toggleView:hover {
+    background-color: #ddd;
+}
+
+#sprintContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sprint-card:hover {
+    transform: scale(1.05);
+}
+
+.list-view {
+    display: block;
+}
+
+.list-view .sprint-details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.create-sprint {
+    margin: 1.25em; /* Relative margin */
+    text-align: center;
+}
+
+.create-sprint button {
+    padding: 0.625em 1.25em; /* Relative padding */
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin-top: 0.625em; /* Relative margin-top */
+    font-size: 1em; /* Scales with body */
+}
+
+.create-sprint button:hover {
+    background-color: #ddd;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 6.25em; /* Relative padding */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 1.25em; /* Relative padding */
+    border: 1px solid #888;
+    width: 50%;
+    color: #333; /* Modal text color adjustment */
+    font-size: 1em; /* Scales with body */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 1.75em; /* Scales with body */
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    cursor: pointer;
+}
+
+/* Create Sprint Form Styles */
+.modal form {
+    display: flex;
+    flex-direction: column;
+    width: 18.75em; /* Relative width */
+    margin: auto;
+    gap: 0.9375em; /* Relative gap */
+}
+
+.modal label {
+    margin: 0;
+    font-size: 1em; /* Scales with body */
+}
+
+.modal input {
+    padding: 0.625em; /* Relative padding */
+    background-color: #f2f2f2;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 0.3125em; /* Relative border-radius */
+    font-size: 1em; /* Scales with body */
+}
+
+.modal button {
+    padding: 0.625em 1.25em; /* Relative padding */
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 0.3125em; /* Relative border-radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* Scales with body */
+}
+
+.modal button:hover {
+    background-color: #ddd;
+}
+
+/* Sprint Card Styles */
+.sprint-card {
+    background-color: white;
+    color: #333;
+    margin: 1.25em; /* Relative margin */
+    padding: 0.9375em; /* Relative padding */
+    border-radius: 0.3125em; /* Relative border-radius */
+    width: 12.5em; /* Relative width */
+    box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    min-height: 9.375em; /* Relative min-height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1em; /* Scales with body */
+}
+
+.list-view .sprint-card {
+    width: auto;
+    margin: 0.625em 0;
+    min-height: auto;
+}
+
+/* Filter Menu Styles */
+.filter-menu {
+    margin: 1.25em 0; /* Relative margin */
+    padding: 0.625em; /* Relative padding */
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+#filterModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 6.25em; /* Relative padding */
+}
+
+.filter-content {
+    background-color: white;
+    margin: auto;
+    padding: 1.25em; /* Relative padding */
+    border: 1px solid #888;
+    width: 18.75em; /* Relative width */
+    color: #333;
+    border-radius: 0.3125em; /* Relative border-radius */
+}
+
+.close-filter {
+    color: #aaa;
+    float: right;
+    font-size: 1.75em; /* Scales with body */
+    font-weight: bold;
+}
+
+.close-filter:hover,
+.close-filter:focus {
+    color: #333;
+    cursor: pointer;
+}
+
+#openFilterModal {
+    background-color: white;
+    color: #333;
+    padding: 0.625em 1.25em; /* Relative padding */
+    border: 1px solid #ccc;
+    border-radius: 0.3125em; /* Relative border-radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 1.25em; /* Relative margin */
+}
+
+#openFilterModal:hover {
+    background-color: #ddd;
+}
+
+#applyFilters {
+    background-color: white;
+    color: #333;
+    padding: 0.625em 1.25em; /* Relative padding */
+    border: 1px solid #ccc;
+    border-radius: 0.3125em; /* Relative border-radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.625em; /* Relative margin-top */
+}
+
+#applyFilters:hover {
+    background-color: #ddd;
+}
+
+.filter-menu label {
+    display: block;
+    margin-bottom: 0.625em; /* Relative margin-bottom */
+    font-size: 0.875em; /* Slightly smaller label font */
+    cursor: pointer;
+}
+
+.filter-menu input[type="checkbox"] {
+    margin-right: 0.625em; /* Relative margin-right */
+}
+#taskHistory {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#taskHistory li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}

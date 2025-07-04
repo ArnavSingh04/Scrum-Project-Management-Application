@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Sprints</title>
+    <link rel="stylesheet" href="css/all_sprints_styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="projects.html">All Projects</a></li>
+                <li><a href="index.html">Current Sprint Board</a></li>
+                <li><a href="backlog.html">Backlog</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="all_sprint.html">All Sprints</a></li>
+                <li><a href="employee_Settings.html">Settings</a></li>
+                <li><a href="mainLoginPage.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="view-toggle">
+            <label>
+               <input type="checkbox" id="toggleView"> Toggle List View
+               <!--<button id="openFilterModal">Open Filter Options</button>-->
+            </label>
+        </div>
+
+        <!-- Section to display dynamically generated sprints -->
+        <section id="sprintContainer" class="card-view"></section>
+
+        <div class="create-sprint">
+           <!--<button id="openModal">Create New Sprint</button>
+            -->
+        </div>
+    </main>
+
+    <!-- Modal for Creating Sprint -->
+    <div id="sprintModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Sprint</h2>
+            <form id="sprintForm">
+                <label for="sprintName">Sprint Name:</label>
+                <input type="text" id="sprintName" name="sprintName" required>
+
+                <label for="storyPoints">Total Story Points:</label>
+                <input type="number" id="storyPoints" name="storyPoints" required>
+
+                <label for="sprintGoal">Sprint Goal:</label>
+                <input type="text" id="sprintGoal" name="sprintGoal" required>
+
+                <label for="sprintDate">Sprint Date:</label>
+                <input type="date" id="sprintDate" name="sprintDate" required>
+
+                <button type="submit">Create Sprint</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Filter modal -->
+    <!-- Button to open the filter modal -->
+
+    <!-- Filter Modal -->
+    <div id="filterModal" class="modal" style="display:none;">
+        <div class="filter-content">
+            <span class="close-filter">&times;</span>
+            <h2>Filter Options</h2>
+            <form id="filterForm">
+                <label>
+                    <input type="checkbox" id="filterName" name="filterName"> Filter by Name
+                </label><br>
+                <label>
+                    <input type="checkbox" id="filterStoryPoints" name="filterStoryPoints"> Filter by Story Points
+                </label><br>
+                <label>
+                    <input type="checkbox" id="filterProgress" name="filterProgress"> Filter by Stage of Progress
+                </label><br>
+                <label>
+                    <input type="checkbox" id="filterDate" name="filterDate"> Filter by Date
+                </label><br>
+                <button type="button" id="applyFilters">Apply Filters</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Sprint Details Modal -->
+    <div id="sprintDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-detail">&times;</span>
+            <h2 id="sprintDetailTitle">Sprint Title</h2>
+            <p id="sprintDetailInfo"></p>
+            <ul id="sprintAdditionalDetails">
+                <li><strong>Start Date:</strong> <span id="sprintStartDate"></span></li>
+                <li><strong>End Date:</strong> <span id="sprintEndDate"></span></li>
+                <li><strong>Total Story Points:</strong> <span id="totalStoryPoints"></span></li>
+                <li><strong>Completed Tasks:</strong> <span id="completedTasks"></span></li>
+                <li><strong>Sprint Name:</strong> <span id="sprintNameDetail"></span></li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/all_sprint.js"></script>
+    <script src="js/fontSize.js"></script>
+</body>
+</html>

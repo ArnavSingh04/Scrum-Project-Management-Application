@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Reports</title>
+    <link rel="stylesheet" href="css/admin_styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="admin_homepage.html">All Employees</a></li>
+                <li><a href="employee_reports.html">View Reports</a></li>
+                <li><a href="admin_login.html">Logout</a></li>
+            </ul>
+        </nav>
+        <div class="header"></div>
+    </header>
+
+    <div class="reports-content">
+        <!-- Dropdown for selecting a user -->
+        <div class="sprint-dropdown">
+            <label for="user-select">Select a User:</label>
+            <select id="user-select">
+                <option value="">-- Select a User --</option>
+                <option value="1">User 1</option>
+                <option value="2">User 2</option>
+                <!-- Add more users dynamically if needed -->
+            </select>
+            <button id="view-reports-btn">View Reports</button>
+        </div>
+    </div>
+
+    <!-- Modal for displaying reports -->
+    <div id="report-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>User Reports</h2>
+
+            <!-- Report 1: Average Time Logged -->
+            <div class="report-section">
+                <h3>Average Time Logged (Days they worked)</h3>
+                <table id="avg-time-logged">
+                    <thead>
+                        <tr>
+                            <th>Date Range</th>
+                            <th>Average Time Logged (hrs)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Report 2: Time Logged vs Day -->
+            <div class="report-section">
+                <h3>Time Logged vs Day</h3>
+                <canvas id="time-logged-chart"></canvas> <!-- Chart for report 2 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/fontSize.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('report-modal');
+        const btn = document.getElementById('view-reports-btn');
+        const closeBtn = document.getElementsByClassName('close')[0];
+
+        btn.onclick = function() {
+            const userSelect = document.getElementById('user-select');
+            if (userSelect.value) {
+                modal.style.display = 'block';
+                loadReports(userSelect.value); // Load the reports for the selected user
+            } else {
+                alert('Please select a user!');
+            }
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Function to load reports (Placeholder)
+        function loadReports(userId) {
+            // Mock data fetching
+            const avgTimeData = {
+                range: "01/01/2023 - 31/01/2023",
+                avgTime: 5.4 // Placeholder for average time logged
+            };
+
+            const timeLoggedData = [
+                { date: '01/01/2023', time: 4 },
+                { date: '02/01/2023', time: 6 },
+                { date: '03/01/2023', time: 5 },
+                // More data points...
+            ];
+
+            // Populate Report 1 (Average Time)
+            const avgTimeTable = document.getElementById('avg-time-logged').getElementsByTagName('tbody')[0];
+            avgTimeTable.innerHTML = `
+                <tr>
+                    <td>${avgTimeData.range}</td>
+                    <td>${avgTimeData.avgTime} hrs</td>
+                </tr>
+            `;
+
+            // Populate Report 2 (Time Logged vs Day) using Chart.js
+            const ctx = document.getElementById('time-logged-chart').getContext('2d');
+            const labels = timeLoggedData.map(item => item.date);
+            const data = timeLoggedData.map(item => item.time);
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Time Logged (hrs)',
+                        data: data,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

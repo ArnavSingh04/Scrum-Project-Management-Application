@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Development of User Stories / Features",
+        "storyPoints": 5,
+        "priority": "Low",
+        "stage": "Planning",
+        "tags": ["frontend", "backend"],
+        "userStory": " Without developing the core features or stories, no tangible progress is made toward the overall project goals"
+    },
+    {
+        "id": 2,
+        "name": "Testing and Quality Assurance (QA)",
+        "storyPoints": 3,
+        "priority": "Medium",
+        "stage": "Development",
+        "tags": ["UI", "UX"],
+        "userStory": "Ensures that new features are bug-free and that existing functionality is not broken during development."
+    },
+    {
+        "id": 3,
+        "name": "Sprint Review and Retrospective Preparation",
+        "storyPoints": 8,
+        "priority": "Urgent",
+        "stage": "Integration",
+        "tags": ["API", "databases"],
+        "userStory": "Helps ensure transparency with stakeholders about the sprint progress and supports continuous improvement in the Agile process."
+    }
+]

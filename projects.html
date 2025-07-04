@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project Dashboard</title>
+    <link rel="stylesheet" href="css/project_styles.css">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="projects.html">Project Overview</a></li>
+            <li><a href="index.html">Current Sprint Board</a></li>
+            <li><a href="backlog.html">Backlog</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="all_sprint.html">All Sprints</a></li>
+            <li><a href="employee_Settings.html">Settings</a></li>
+            <li><a href="mainLoginPage.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <section id="projects">
+        <h2>Project Overview</h2>
+        <div id="projectDetails">
+        </div>
+    </section>
+
+    <div id="viewProjectModal" class="modal">
+        <div class="modal-content project-details">
+            <span class="close">&times;</span>
+            <h3 id="viewProjectTitle"></h3>
+            <p id="viewProjectDescription"></p>
+            <p><strong>Client:</strong> <span id="viewProjectClient"></span></p>
+            <p><strong>Deadline:</strong> <span id="viewProjectDeadline"></span></p>
+            <p><strong>Team Members:</strong> <span id="viewProjectTeam"></span></p>
+
+            <div class="project-buttons">
+                <button id="gotoSprint" class="nav-button large-btn">Go to Current Sprint</button>
+                <button id="gotoBacklog" class="nav-button large-btn">Go to Backlog</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/fontSize.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>

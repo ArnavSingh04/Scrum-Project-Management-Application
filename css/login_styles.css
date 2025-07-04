@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../images/background_final.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: black; /* Changed to black for better readability */
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Wrapper to center both the logo and the login box */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    background-color: rgba(255, 255, 255, 0.6); /* Light white overlay for a cleaner look */
+}
+
+/* Center the logo and motto at the top */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: transparent; /* Remove background color */
+}
+
+/* Logo styling */
+.company-logo {
+    width: 9.375em; /* Converted to em */
+    margin-bottom: 0.625em; /* Converted to em */
+}
+
+/* Motto styling */
+.motto {
+    font-size: 1.125em; /* Converted to em */
+    color: black; /* Changed to black for better contrast */
+    margin-bottom: 1.25em; /* Converted to em */
+    font-style: italic;
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 2.5em; /* Converted to em */
+    border-radius: 0.625em; /* Converted to em */
+    box-shadow: 0px 0.625em 1.25em rgba(0, 0, 0, 0.1); /* Softer shadow for lighter feel */
+    width: 25em; /* Converted to em */
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Ensure everything stacks vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+h2 {
+    margin-bottom: 1.25em; /* Converted to em */
+    font-size: 1.5em; /* Converted to em */
+    color: black; /* Changed to black for better contrast */
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 1.875em; /* Converted to em */
+    width: 100%;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 0.625em; /* Converted to em */
+    background: transparent;
+    border: none;
+    border-bottom: 0.125em solid black; /* Changed to black */
+    outline: none;
+    color: black; /* Changed to black */
+    font-size: 1em; /* Converted to em */
+}
+
+.input-box label {
+    position: absolute;
+    top: 0.625em; /* Converted to em */
+    left: 0;
+    color: #666; /* Light gray for labels */
+    transition: 0.5s;
+    font-size: 1em; /* Converted to em */
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -1.25em; /* Converted to em */
+    color: black; /* Changed to black */
+    font-size: 0.75em; /* Converted to em */
+}
+
+button {
+    width: 100%;
+    padding: 0.625em; /* Converted to em */
+    background-color: #f1f1f1; /* Lighter button background */
+    border: none;
+    border-radius: 0.3125em; /* Converted to em */
+    color: black; /* Changed to black */
+    font-size: 1em; /* Converted to em */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e1e1e1; /* Slightly darker on hover */
+}
+
+.remember {
+    text-align: left;
+    margin-bottom: 0.9375em; /* Converted to em */
+}
+
+.forgot-password {
+    margin-top: 1.25em; /* Converted to em */
+}
+
+.forgot-password a {
+    color: black; /* Changed to black */
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.admin-login {
+    margin-top: 1.25em; /* Converted to em */
+    text-align: center; /* Centers the link */
+}
+
+.admin-login a {
+    display: inline-block;
+    padding: 0.625em 1.25em; /* Converted to em */
+    background-color: #ccc; /* Light gray for the admin button */
+    color: black; /* Changed to black */
+    text-decoration: none;
+    border-radius: 0.3125em; /* Converted to em */
+    font-size: 1em; /* Converted to em */
+}
+
+.admin-login a:hover {
+    background-color: #bbb; /* Slightly darker on hover */
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white; /* Changed to white for modal background */
+    margin: 15% auto;
+    padding: 1.25em; /* Converted to em */
+    border: 1px solid black; /* Changed to black */
+    width: 80%;
+    max-width: 25em; /* Converted to em */
+    text-align: center;
+}
+
+.close {
+    color: #aaa; /* Light gray */
+    float: right;
+    font-size: 1.75em; /* Converted to em */
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black; /* Changed to black */
+    text-decoration: none;
+    cursor: pointer;
+}

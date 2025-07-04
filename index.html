@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Current Sprint Dashboard</title>
+    <link rel="stylesheet" href="css/current_sprint_styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="projects.html">All Projects</a></li>
+                <li><a href="index.html">Current Sprint Board</a></li>
+                <li><a href="backlog.html">Backlog</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="all_sprint.html">All Sprints</a></li>
+                <li><a href="employee_Settings.html">Settings</a></li>
+                <li><a href="mainLoginPage.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="welcome-msg">
+            <h1>Welcome, <span id="userName"></span></h1>
+        </div>
+
+        <div class="view-toggle">
+            <label for="toggle-view">
+                <input type="checkbox" id="toggleListView"> List View
+                <button id="openFilterModal">Filter Options</button>
+
+            </label>
+        </div>
+
+        <!-- Sprint Board Heading -->
+        <section class="sprint-board">
+            <h2>Current Sprint Board</h2>
+            <div class="sprint-actions">
+                <button id="sprintSettingsBtn" onclick="openSprintSettingsModal()">Sprint Settings</button>
+                <button onclick="completeSprint()" class="btn-complete-sprint">Complete Sprint</button>
+            </div>
+        </section>
+
+
+        <!-- Task Board -->
+        <div class="dashboard">
+            <div class="card not-started" ondragover="allowDrop(event)" ondrop="drop(event)">
+                <h2>Not Started</h2>
+                <div class="task-container" id="not-started"></div>
+            </div>
+
+            <div class="card in-progress" ondragover="allowDrop(event)" ondrop="drop(event)">
+                <h2>In Progress</h2>
+                <div class="task-container" id="in-progress"></div>
+            </div>
+
+            <div class="card completed" ondragover="allowDrop(event)" ondrop="drop(event)">
+                <h2>Completed</h2>
+                <div class="task-container" id="completed"></div>
+            </div>
+        </div>
+
+
+        <!-- Table View -->
+        <div class="table-container">
+            <table id="taskListTable">
+                <thead>
+                    <tr>
+                        <th>Task Name</th>
+                        <th>Task Description</th>
+                        <th>Story Points</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="taskTableBody">
+                    <!-- Table rows will be added dynamically here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="sprintSettingsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeSprintSettingsModal()">&times;</span>
+                <h2>Sprint Settings</h2>
+                <form>
+                    <label for="sprintGoal">Sprint Goal:</label>
+                    <input type="text" id="sprintGoal" name="sprintGoal"><br>
+
+                    <label for="startDate">Sprint Start Date:</label>
+                    <input type="date" id="startDate" name="startDate"><br>
+
+                    <label for="endDate">Sprint End Date:</label>
+                    <input type="date" id="endDate" name="endDate"><br>
+
+                    <button type="button" onclick="saveSprintSettings()">Save Changes</button>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Daily Scrum Meeting Section -->
+        <div class="scrum-meeting-container">
+            <div class="scrum-bar" id="scrumBar">Daily Scrum Meeting</div>
+            <div class="scrum-content" id="scrumContent">
+                <table class="scrum-meeting-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Attendees</th>
+                            <th>Meeting Minutes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="meeting-table-body">
+                        <!-- New meeting input fields -->
+                        <tr id="new-meeting-row">
+                            <td><input type="date" id="meeting-date" class="input-field"></td>
+                            <td>
+                                <select id="attendees" multiple class="input-field">
+                                    <!-- Attendees will be dynamically populated -->
+                                </select>
+                            </td>
+                            <td><textarea id="meeting-minutes" class="input-field" placeholder="Enter meeting minutes"></textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="save-button" onclick="saveMeeting()">Save</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Task Modal -->
+    <!-- Task Modal -->
+<div id="taskModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeTaskModal()">&times;</span>
+        <h2 id="taskTitle">Task Title</h2>
+        <p id="taskDescription">Task description will go here.</p>
+        <p id="taskPoints">Story Points: </p>
+        <p id="taskPriority">Priority: </p>
+        <p id="taskStage">Stage: </p>
+        <p id="taskTags">Tags: </p>
+
+        <!-- Move Task Buttons -->
+        <div id="moveTaskButtons"></div>
+
+        <!-- Time Logging Section -->
+        <div class="time-input">
+    <div>
+        <label for="loggedHours">Logged Hours:</label>
+        <input type="number" id="loggedHours" name="loggedHours" step="0.1" placeholder="Enter hours">
+    </div>
+</div>
+        <!-- Notes Section -->
+        <div class="notes-section">
+            <label for="notes">Notes:</label>
+            <textarea id="notes" rows="3" placeholder="Enter any notes..."></textarea>
+        </div>
+
+        <!-- Log Time Button -->
+        <button id="logTimeBtn" class="btn-log-time">Log Time</button>
+    </div>
+</div>
+
+    <!-- Sprint Settings Modal -->
+    <div id="sprintSettingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sprint Settings</h2>
+            <form>
+                <label for="sprintGoal">Sprint Goal:</label>
+                <input type="text" id="sprintGoal" name="sprintGoal"><br>
+
+                <label for="startDate">Sprint Start Date:</label>
+                <input type="date" id="startDate" name="startDate"><br>
+
+                <label for="endDate">Sprint End Date:</label>
+                <input type="date" id="endDate" name="endDate"><br>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Filter Modal -->
+    <div id="filterModal" class="modal">
+        <div class="filter-content">
+            <span class="close-filter">&times;</span>
+            <h2>Filter Options</h2>
+            <form id="filterForm">
+                <label for="filterPriority">Priority:</label>
+                <select id="filterPriority">
+                    <option value="">All</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="important">Important</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+
+                <label for="filterStage">Stage:</label>
+                <select id="filterStage">
+                    <option value="">All</option>
+                    <option value="planning">Planning</option>
+                    <option value="development">Development</option>
+                    <option value="testing">Testing</option>
+                    <option value="integration">Integration</option>
+                </select>
+
+                <label for="filterStoryPoints">Story Points (Minimum):</label>
+                <input type="number" id="filterStoryPoints" placeholder="Enter minimum story points">
+
+                <button type="button" id="applyFilters">Apply Filters</button>
+                <!--<button type="button" id="clearFilters">Clear Filters</button>-->
+            </form>
+        </div>
+    </div>
+    <script>
+        // Function to populate attendees
+        function populateAttendees() {
+            const users = JSON.parse(localStorage.getItem('usersDB')) || [];
+            const attendeesSelect = document.getElementById('attendees');
+    
+            attendeesSelect.innerHTML = ''; // Clear existing options
+    
+            users.forEach(user => {
+                const option = document.createElement('option');
+                option.value = user.username;
+                option.textContent = user.username;
+                attendeesSelect.appendChild(option);
+            });
+        }
+    
+        // Function to save the new meeting
+        function saveMeeting() {
+            const meetingDate = document.getElementById('meeting-date').value;
+            const attendees = Array.from(document.getElementById('attendees').selectedOptions).map(option => option.value);
+            const meetingMinutes = document.getElementById('meeting-minutes').value;
+    
+            if (!meetingDate || !attendees.length || !meetingMinutes) {
+                alert("Please fill in all the fields.");
+                return;
+            }
+    
+            // Get existing meetings from localStorage
+            const meetings = JSON.parse(localStorage.getItem('scrumMeetings')) || [];
+    
+            // Create a new meeting object
+            const newMeeting = {
+                date: meetingDate,
+                attendees: attendees,
+                minutes: meetingMinutes
+            };
+    
+            // Add the new meeting to the meetings array
+            meetings.unshift(newMeeting); // Add to the beginning of the array
+    
+            // Save updated meetings to localStorage
+            localStorage.setItem('scrumMeetings', JSON.stringify(meetings));
+    
+            // Add the new meeting to the table
+            addMeetingToTable(newMeeting);
+    
+            // Clear the form inputs
+            document.getElementById('meeting-date').value = '';
+            document.getElementById('attendees').value = '';
+            document.getElementById('meeting-minutes').value = '';
+    
+            alert('Meeting saved successfully!');
+        }
+    
+        // Function to add a meeting to the table
+        function addMeetingToTable(meeting) {
+            const newRow = `
+                <tr>
+                    <td>${meeting.date}</td>
+                    <td>${meeting.attendees.join(', ')}</td>
+                    <td>${meeting.minutes}</td>
+                </tr>
+            `;
+    
+            // Insert the new row before the new meeting input row
+            const newMeetingRow = document.getElementById('new-meeting-row');
+            newMeetingRow.insertAdjacentHTML('beforebegin', newRow);
+        }
+    
+        // Function to load meetings from localStorage
+        function loadMeetings() {
+            const meetings = JSON.parse(localStorage.getItem('scrumMeetings')) || [];
+            meetings.forEach(meeting => {
+                addMeetingToTable(meeting);
+            });
+        }
+    
+        // Call the function to populate attendees and load saved meetings when the page loads
+        window.onload = function() {
+            populateAttendees();
+            loadMeetings(); // Load meetings from localStorage
+        };
+    </script>
+    <script src="js/current_sprint.js"></script>
+    <script src="js/fontSize.js"></script>
+</body>
+</html>

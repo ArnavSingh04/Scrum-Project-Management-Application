@@ -1,0 +1,876 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/background_final.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: black; /* All text set to black */
+    font-size: 1em; /* Base font size for scalability */
+}
+
+/* Header */
+header {
+    background-color: white;
+    color: black; /* Changed to black for header text */
+    padding: 0.625em 0; /* Relative padding */
+}
+
+/* Updated nav bar styles */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white; /* White background */
+}
+
+.navbar ul li {
+    float: left;
+}
+
+.navbar ul li a {
+    display: block;
+    color: black; /* Text color set to black */
+    text-align: center;
+    padding: 0.875em 1em; /* Relative padding */
+    text-decoration: none;
+    font-size: 1em; /* Scales with body font size */
+}
+
+.navbar ul li a:hover {
+    background-color: #ddd; /* Slightly lighter hover background */
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    z-index: 20000;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f2f2f2; /* Lighter shade for dropdown */
+    min-width: 10em; /* Relative width */
+    box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+}
+
+.dropdown-content a {
+    color: black; /* Dropdown menu text color */
+    padding: 0.75em 1em; /* Relative padding */
+    text-decoration: none;
+    display: block;
+    font-size: 1em; /* Scales with body */
+}
+
+.dropdown-content a:hover {
+    background-color: #e0e0e0; /* Slightly lighter hover effect */
+}
+
+.show {
+    display: block;
+}
+
+/* Welcome Message */
+.welcome-msg {
+    text-align: center;
+    margin: 1.25em; /* Relative margin */
+    color: black; /* Ensure text matches overall color scheme */
+    font-size: 1em; /* Scales with body */
+}
+
+.sprint-details {
+    margin: 1.25em; /* Relative margin */
+}
+
+/* View toggle button styles */
+.view-toggle {
+    text-align: center; /* Center align the view toggle */
+    margin: 1em; /* Margin around toggle */
+}
+
+#toggleView {
+    padding: 0.625em 1.25em; /* Relative padding */
+    background-color: white; /* White background for button */
+    color: black; /* Text color for button */
+    border: 1px solid #ccc; /* Border for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Scales with body */
+}
+
+#toggleView:hover {
+    background-color: #ddd; /* Change background on hover */
+}
+/* Dashboard Header */
+.dashboard-header {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.dashboard-header h1 {
+    font-size: 2em;
+    color: #000000;
+}
+
+.dashboard-header label {
+    font-size: 0.9em;
+    color: #000000;
+}
+
+/* Sprint Board Heading */
+.sprint-board {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sprint-board h2 {
+    font-size: 1.8em;
+    color: #333;
+}
+
+
+/* Dashboard Layout */
+.dashboard {
+    display: flex;  /* Ensure flexbox is applied */
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+    flex-wrap: nowrap;
+}
+
+
+/* Card styling */
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;  /* Ensure cards take up one-third of the row */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin: 0 10px;  /* Adds space between the cards */
+}
+
+/* Card Titles */
+.card h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Card Paragraphs */
+.card p {
+    color: #555;
+}
+
+/* Hover effect for cards */
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Colors for each card */
+.not-started {
+    border-left: 5px solid #ff4d4d; /* Red for Not Started */
+}
+
+.in-progress {
+    border-left: 5px solid #ffa500; /* Orange for In Progress */
+}
+
+.completed {
+    border-left: 5px solid #4caf50; /* Green for Completed */
+}
+/* Container for task cards */
+.task-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between task cards */
+}
+
+/* Style for individual task cards */
+.task-card {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for task cards */
+.task-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Change the appearance of the card when being dragged */
+.task-card {
+    transition: opacity 0.2s ease;
+}
+
+.task-card[draggable="true"]:active {
+    opacity: 0.5;
+}
+
+/* Highlight the column where the card is dragged over */
+.card {
+    transition: background-color 0.2s ease;
+}
+
+.card:hover {
+    background-color: #f0f0f0;
+}
+   /* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto; /* Center the modal */
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%; /* Adjust modal width */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Center text in the modal */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Time logging title */
+.time-logging-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 30px 0 10px 0;
+}
+
+/* Center content within modal */
+.time-input {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.time-input div {
+    text-align: left; /* Align the labels and inputs left */
+}
+
+.time-input label {
+    display: block;
+    font-weight: bold;
+}
+
+.time-input input {
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Notes section styling */
+.notes-section {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.notes-section label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.notes-section textarea {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* Log Time button styling to match the website's theme */
+.btn-log-time {
+    background-color: #757575;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-log-time:hover {
+    background-color: #2e2e2e; /* Darker shade on hover */
+}
+
+.btn-log-time:active {
+    background-color: #181818; /* Even darker shade when clicked */
+}
+
+/* Sprint container styling */
+#sprint-details {
+    display: flex; /* Use flexbox layout */
+    flex-wrap: wrap; /* Allow wrapping of sprint cards */
+    justify-content: center; /* Center align sprints */
+}
+
+.sprint-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Table styling */
+#taskListTable {
+    display: none; /* Initially hide the table */
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    border: 2px solid black;
+}
+
+#taskListTable th, #taskListTable td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+#taskListTable th {
+    background-color: #e0e0e0;
+    color: black;
+    font-weight: bold;
+}
+
+#taskListTable td {
+    background-color: white;
+}
+
+#taskListTable tr:hover {
+    background-color: #f2f2f2;
+}
+
+.task {
+    text-align: left;
+    padding: 0.3125em; /* Relative padding */
+    background-color: #f9f9f9; /* Nearly white background */
+    border-radius: 0.3125em; /* Relative border-radius */
+    color: black; /* Black text */
+}
+
+.btn {
+    display: block;
+    margin: 1.25em auto; /* Relative margin */
+    padding: 0.625em 1.25em; /* Relative padding */
+    background-color: #f9f9f9; /* Nearly white background */
+    color: black; /* Black text */
+    border: 1px solid white; /* White border */
+    cursor: pointer;
+    font-size: 1em; /* Scales with body */
+}
+
+.btn:hover {
+    background-color: #e0e0e0; /* Slightly darker on hover */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 6.25em; /* Relative padding */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.219); /* Light overlay */
+}
+
+.modal-content {
+    background-color: #f7f7f7; /* Nearly white background */
+    margin: auto;
+    padding: 1.25em; /* Relative padding */
+    border: 1px solid #333; /* Black border */
+    width: 50%;
+    color: black; /* Black text */
+}
+
+.close {
+    color: black; /* Black text */
+    float: right;
+    font-size: 1.75em; /* Scales with body */
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black; /* Black text */
+    cursor: pointer;
+}
+
+form {
+    margin-top: 0.625em; /* Relative margin */
+}
+
+form input {
+    display: block;
+    margin: 0.625em 0; /* Relative margin */
+    padding: 0.5em; /* Relative padding */
+    width: 100%;
+    background-color: #d4d4d4; /* Slightly darker for visibility */
+    color: black; /* Black text */
+    border: 1px solid white; /* White border */
+}
+
+form button {
+    padding: 0.625em 1.25em; /* Relative padding */
+    background-color: #d4d4d4; /* Slightly darker for visibility */
+    color: black; /* Black text */
+    border: 1px solid white; /* White border */
+    cursor: pointer;
+    font-size: 1em; /* Scales with body */
+}
+
+/* Profile section */
+.profile-container {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+}
+
+.profile {
+    background-color: white;
+    color: black; /* Changed to black for profile text */
+    padding: 0.75em 1em; /* Relative padding */
+    border: 1px solid #ccc;
+    border-radius: 0.3125em; /* Relative border-radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* Scales with body */
+}
+
+.profile:hover {
+    background-color: #ddd; /* Slightly darker on hover */
+}
+
+.show {
+    display: block;
+}
+
+.navbar {
+    position: relative;
+    z-index: 100;
+}
+
+.scrum-meeting-container {
+    margin-top: 1.25em; /* Relative margin */
+    padding: 0.9375em; /* Relative padding */
+    border: 0.0625em solid #ccc; /* Relative border */
+    border-radius: 0.5em; /* Relative border-radius */
+    background-color: #f9f9f9;
+    width: 76%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scrum-meeting-container h3 {
+    margin-bottom: 0.9375em; /* Relative margin */
+}
+
+.scrum-meeting-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2.5em; /* Relative margin */
+}
+
+.scrum-meeting-table th, .scrum-meeting-table td {
+    border: 1px solid #ccc; /* Light gray borders */
+    padding: 0.625em;
+    text-align: center;
+}
+
+.scrum-meeting-table th {
+    background-color: #f2f2f2;
+    font-size: 1em; /* Scales with body font size */
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.5em; /* Relative padding */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 0.25em; /* Relative border-radius */
+    font-size: 1em; /* Scales with body font size */
+}
+
+#meeting-minutes {
+    height: 3.75em; /* Relative height */
+}
+
+.save-button {
+    padding: 0.625em 1.25em; /* Scalable padding */
+    background-color: #ffffff;
+    color: rgb(13, 1, 1);
+    border: 1px solid #000000;
+    border-radius: 0.25em; /* Relative border-radius */
+    cursor: pointer;
+    float: right;
+    margin-top: -1.75em; /* Relative margin */
+    font-size: 1em; /* Scales with body font size */
+}
+
+.save-button:hover {
+    background-color: #e7e7e7;
+}
+
+.scrum-meeting-container {
+    margin: 1.25em auto; /* Relative margin */
+    padding: 1.25em; /* Relative padding */
+    background-color: white;
+    width: 100%;
+    max-width: 50em; /* Responsive max-width */
+    box-shadow: 0px 0.25em 0.375em rgba(0, 0, 0, 0.1);
+    border-radius: 0.5em; /* Relative border-radius */
+    font-size: 1em; /* Scales with body font size */
+}
+
+.scrum-bar {
+    background-color: #f2f2f2;
+    padding: 0.625em; /* Relative padding */
+    cursor: pointer;
+    font-size: 1.125em; /* Scales with body font size */
+    font-weight: bold;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin-bottom: 0.625em; /* Relative margin */
+}
+
+.scrum-content {
+    display: none;
+    padding: 0.625em;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.scrum-meeting-table {
+    width: 100%;
+    font-size: 1em; /* Scales with body font size */
+}
+
+.save-button {
+    display: block;
+    width: 100%;
+    max-width: 12.5em; /* Relative max-width */
+    padding: 0.625em; /* Relative padding */
+    background-color: grey;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 0.25em; /* Relative border-radius */
+    cursor: pointer;
+    font-size: 1em; /* Scales with body font size */
+}
+
+.save-button:hover {
+    background-color: darkgray;
+}
+
+.dropdown-content {
+    display: none;
+}
+
+.filter-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 1.25em;
+    border-radius: 0.5em; /* Relative border-radius */
+    width: 100%;
+    max-width: 31.25em; /* Responsive width for smaller screens */
+    box-shadow: 0px 0.25em 0.625em rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-filter {
+    position: absolute;
+    top: 0.625em;
+    right: 0.9375em;
+    font-size: 1.5em; /* Scales with body font size */
+    font-weight: bold;
+    cursor: pointer;
+    color: #555;
+}
+
+.filter-content label {
+    display: block;
+    margin-bottom: 0.625em; /* Relative margin */
+    font-size: 1em; /* Scales with body font size */
+    cursor: pointer;
+}
+
+.filter-content input[type="checkbox"] {
+    margin-right: 0.625em; /* Relative margin */
+}
+
+#applyFilters {
+    display: block;
+    margin: 1.25em 0 0;
+    padding: 0.625em 0.9375em; /* Relative padding */
+    width: 100%;
+    max-width: 12.5em; /* Limiting the button width */
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 0.25em; /* Relative border-radius */
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em; /* Scales with body font size */
+}
+
+#applyFilters:hover {
+    background-color: darkgray;
+}
+/* Task Cards responsiveness for other screen sizes */
+
+/* For smaller screens (e.g., tablets and mobile phones) */
+@media screen and (max-width: 768px) {
+    /* Stack the cards vertically on small screens */
+    .dashboard {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Make the cards take full width */
+    .card {
+        width: 80%; /* Take up more space on smaller screens */
+        margin: 10px 0; /* Space between stacked cards */
+    }
+
+    /* Reduce heading sizes on smaller screens */
+    .dashboard-header h1, .sprint-board h2 {
+        font-size: 1.5em;
+    }
+
+    /* Adjust button size */
+    .settings button {
+        width: 80%;
+        font-size: 0.9em;
+    }
+}
+
+/* For extra small screens (e.g., phones in portrait mode) */
+@media screen and (max-width: 480px) {
+    .navbar ul {
+        flex-direction: column; /* Stack the navigation links vertically */
+        text-align: center;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    /* Further reduce heading sizes */
+    .dashboard-header h1, .sprint-board h2 {
+        font-size: 1.2em;
+    }
+
+    /* Reduce card padding for extra small screens */
+    .card {
+        padding: 15px;
+    }
+
+    /* Adjust button padding */
+    .settings button {
+        font-size: 0.8em;
+        padding: 10px;
+    }
+}
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    #taskListTable {
+        width: 100%; /* Make table full width on tablets */
+        font-size: 0.9em; /* Slightly reduce font size */
+    }
+
+    #taskListTable th, #taskListTable td {
+        padding: 8px; /* Reduce padding to save space */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #taskListTable {
+        width: 100%; /* Full width on smaller screens */
+        font-size: 0.8em; /* Reduce font size for readability */
+    }
+
+    #taskListTable th, #taskListTable td {
+        padding: 5px; /* Further reduce padding for smaller screens */
+    }
+
+    #taskListTable th {
+        font-size: 0.9em; /* Adjust header font size */
+    }
+
+    #taskListTable td {
+        font-size: 0.8em; /* Adjust cell font size */
+    }
+
+    /* Scrollable table for very small screens */
+    .table-container {
+        overflow-x: auto; /* Allow horizontal scrolling */
+    }
+
+    /* Stack table rows on top of each other for very small screens */
+    #taskListTable, #taskListTable thead, #taskListTable tbody, #taskListTable th, #taskListTable td, #taskListTable tr {
+        display: block; /* Stack table elements */
+    }
+
+    #taskListTable tr {
+        margin-bottom: 10px; /* Add space between rows */
+    }
+
+    #taskListTable td, #taskListTable th {
+        width: 100%; /* Make cells take up full width */
+        box-sizing: border-box;
+        text-align: left; /* Align text to the left for readability */
+    }
+
+    #taskListTable td::before {
+        content: attr(data-label); /* Add labels for each cell */
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px; /* Space between label and content */
+    }
+
+    /* Hide table headers for smaller screens */
+    #taskListTable thead {
+        display: none;
+    }
+}
+.task-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.task-buttons button {
+    padding: 5px 10px;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.task-buttons button:hover {
+    background-color: #555;
+}
+
+.task-buttons button:active {
+    background-color: #111;
+}
+
+
+.task-buttons .move-in-progress {
+    background-color: #f0ad4e;
+}
+
+.task-buttons .move-in-progress:hover {
+    background-color: #ec971f;
+}
+
+.task-buttons .move-completed {
+    background-color: #5cb85c;
+}
+
+.task-buttons .move-completed:hover {
+    background-color: #4cae4c;
+}
+
+.move-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    margin: 5px;
+    width: auto;
+    min-width: 80px;
+}
+
+.move-btn:hover {
+    opacity: 0.8;
+}
+
+.task-card .move-btn {
+    display: inline-block;
+    width: 45%;
+    text-align: center;
+    margin: 0 5px;
+}
+.btn-complete-sprint {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+.btn-complete-sprint:hover {
+    background-color: #4cae4c;
+}
+.sprint-actions {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sprint-actions button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.sprint-actions button:hover {
+    background-color: #45a049;
+}
+
+.btn-complete-sprint {
+    background-color: #f44336;
+}
+
+.btn-complete-sprint:hover {
+    background-color: #e53935;
+}

@@ -1,0 +1,200 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/background_final.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensure background covers the entire area */
+    color: black; /* All text set to black */
+}
+
+/* Header */
+header {
+    background-color: white; /* Header background */
+    color: black; /* Header text color */
+    padding: 0.625em 0; /* 10px */
+}
+
+/* Nav bar styles */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white; /* White background */
+}
+
+.navbar ul li {
+    float: left;
+}
+
+.navbar ul li a {
+    display: block;
+    color: black; /* Text color */
+    text-align: center;
+    padding: 0.875em 1em; /* 14px 16px */
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    background-color: #ddd; /* Lighter hover background */
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    z-index: 20000;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f2f2f2; /* Dropdown background */
+    min-width: 10em; /* 160px */
+    box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+}
+
+.dropdown-content a {
+    color: black; /* Dropdown menu text color */
+    padding: 0.75em 1em; /* 12px 16px */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #e0e0e0; /* Hover effect */
+}
+
+.content {
+    padding: 1.25em; /* 20px */
+    text-align: center;
+}
+
+.sprint-dropdown {
+    margin-top: 1.25em; /* 20px */
+}
+
+.sprint-dropdown select,
+.sprint-dropdown button {
+    padding: 0.625em 0.9375em; /* 10px 15px */
+    margin-right: 0.625em; /* 10px */
+    background-color: #d4d4d4; /* Button background */
+    color: black; /* Text color */
+    border: 0.0625em solid white; /* Border */
+    cursor: pointer;
+    border-radius: 0.3125em; /* Rounded corners */
+    transition: background-color 0.3s;
+}
+
+.sprint-dropdown button:hover,
+.sprint-dropdown select:hover {
+    background-color: #e0e0e0; /* Hover effect */
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999; /* Ensure modal is above everything else */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center modal vertically and horizontally */
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if content is too long */
+}
+
+.modal-content {
+    background-color: #f7f7f7; /* Background color */
+    margin: auto;
+    padding: 1.25em; /* 20px */
+    border: 0.0625em solid #333; /* Black border */
+    width: 50%;
+    color: black; /* Text color */
+    position: relative;
+    box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.3); /* Shadow effect */
+}
+
+.close {
+    color: black; /* Text color */
+    float: right;
+    font-size: 1.75em; /* Font size */
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black; /* Hover color */
+    cursor: pointer;
+}
+
+/* Report list styles */
+.report-list {
+    margin-top: 1.25em; /* 20px */
+    max-height: 25em; /* 400px */
+    overflow-y: auto; /* Scrollable */
+}
+
+.report-img {
+    max-width: 100%;
+    margin-bottom: 1.25em; /* 20px */
+    border: 0.0625em solid #555; /* Border */
+    border-radius: 0.3125em; /* Rounded corners */
+}
+
+.report-list h4 {
+    margin-top: 1.25em; /* 20px */
+    color: black;
+}
+
+.report-list p {
+    margin-bottom: 0.9375em; /* 15px */
+    background-color: #f9f9f9; /* Background color */
+    padding: 0.625em; /* 10px */
+    border-radius: 0.3125em; /* Rounded corners */
+    color: black; /* Text color */
+}
+
+/* Profile styles */
+.profile-container {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+}
+
+.profile {
+    background-color: white;
+    color: black;
+    padding: 0.75em 1em; /* 12px 16px */
+    border: 0.0625em solid #ccc; /* Border */
+    border-radius: 0.3125em; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* Font size */
+}
+
+.profile:hover {
+    background-color: #ddd; /* Hover effect */
+}
+
+.show {
+    display: block;
+}
+
+/* Navbar z-index to ensure it's below the modal */
+.navbar {
+    position: relative;
+    z-index: 100;
+}
+
+canvas {
+    max-width: 500px;
+    max-height: 300px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.sprint-report {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}

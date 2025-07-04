@@ -1,0 +1,238 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/background_final.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+    font-size: 1em; /* Base font size is 1em for scalability */
+    transition: font-size 0.3s ease-in-out; /* Smooth transition for font size changes */
+}
+
+/* Header */
+header {
+    background-color: white;
+    color: #333; /* Changed to dark color for contrast */
+    padding: 0.625em 0; /* Converted to em */
+}
+
+/* Updated nav bar styles */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white; /* White background */
+}
+
+.navbar ul li {
+    float: left;
+}
+
+.container {
+    min-height: 100vh; /* Ensure the container is tall enough */
+}
+
+.navbar ul li a {
+    display: block;
+    color: #333; /* Text color set to #333 */
+    text-align: center;
+    padding: 0.875em 1em; /* Converted to em */
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    background-color: #ddd; /* Slightly lighter hover background */
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    z-index: 20000;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f2f2f2; /* Lighter shade for dropdown */
+    min-width: 10em; /* Converted to em */
+    box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+}
+
+.dropdown-content a {
+    color: #333; /* Dropdown menu text color */
+    padding: 0.75em 1em; /* Converted to em */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #e0e0e0; /* Slightly lighter hover effect */
+}
+
+.show {
+    display: block; /* Display dropdown content when shown */
+}
+
+.profile-container {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+}
+
+.profile {
+    background-color: white; /* Match background color */
+    color: #333; /* Text color set to #333 */
+    padding: 0.75em 1em; /* Converted to em */
+    border: 1px solid #ccc;
+    border-radius: 0.3125em; /* Converted to em */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* Base font size */
+}
+
+.profile:hover {
+    background-color: #ddd; /* Slightly lighter on hover */
+}
+
+.welcome-msg {
+    text-align: center;
+    margin: 1em;
+    color: black; /* Ensure welcome message is black */
+}
+
+.view-toggle {
+    text-align: center;
+    margin: 1em;
+}
+
+/* Settings section */
+#settings {
+    padding: 1.25em;
+    background-color: #f2f2f2; /* Light background */
+    margin: 1.25em auto;
+    max-width: 40em; /* Relative max width */
+    border-radius: 0.5em;
+    box-shadow: 0 0.125em 0.625em rgba(0, 0, 0, 0.1);
+    font-size: 1em; /* Font size scales with body */
+}
+
+.settings-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.settings-list li {
+    margin: 0.625em 0;
+}
+
+.settings-list a {
+    color: #007BFF; /* Blue for links */
+    text-decoration: none;
+    font-size: 1em; /* Font size scales with body */
+}
+
+.settings-list a:hover {
+    text-decoration: underline;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.7); /* Light overlay */
+}
+
+.modal-content {
+    background-color: #f7f7f7; /* Light modal background */
+    margin: 10% auto;
+    padding: 1.25em;
+    border: 1px solid #ccc; /* Border */
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 30em; /* Relative max-width */
+    border-radius: 0.5em;
+    color: black; /* Modal text black */
+}
+
+.close {
+    color: black; /* Black close button */
+    float: right;
+    font-size: 1.75em; /* Close button size relative */
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #555; /* Darker grey on hover */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 0.625em 0;
+    background-color: #f2f2f2; /* Footer background light grey */
+    color: black; /* Footer text black */
+    position: relative;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        margin: 0.625em 0;
+    }
+
+    .modal-content {
+        width: 90%; /* Wider modal on smaller screens */
+    }
+}
+
+/* Font size change buttons */
+.font-size-setting {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: left; /* Center align */
+    margin: 1.25em 0;
+}
+
+.font-size-setting h3 {
+    margin-bottom: 1em;
+    font-size: 1em; /* Heading size relative */
+}
+
+.font-size-setting button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.625em 1.25em;
+    margin: 0.3125em 0; /* Space between buttons */
+    cursor: pointer;
+    border-radius: 0.25em;
+    font-size: 1em; /* Button text scales with body */
+    transition: background-color 0.3s ease;
+}
+
+.font-size-setting button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.font-size-setting button:focus {
+    outline: none;
+    box-shadow: 0 0 0.25em rgba(0, 123, 255, 0.5);
+}
+
+.font-size-setting button.active {
+    background-color: #0056b3; /* Darker blue for active button */
+}

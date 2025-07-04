@@ -1,0 +1,187 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlog</title>
+    <link rel="stylesheet" href="css/backlog_styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="projects.html">All Projects</a></li>
+                <li><a href="index.html">Current Sprint Board</a></li>
+                <li><a href="backlog.html">Backlog</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="all_sprint.html">All Sprints</a></li>
+                <li><a href="employee_Settings.html">Settings</a></li>
+                <li><a href="mainLoginPage.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="backlog-container">
+            <h1>Backlog</h1>
+
+            <div class="buttons-container">
+                <!--<button id="addToSprintBtn">Add task to Current Sprint</button>-->
+                <button id="addtaskBtn">Add New task</button>
+            </div>
+            <button id="openFilterModal" class="filter-button">Filter Tasks</button>
+            <button id="resetFilters" class="reset-button" style="display: none;">Reset Filters</button>
+
+            <div class="tasks-list">
+                <h2>All tasks</h2>
+            </div>
+        </div>
+    </main>
+
+    <div id="addtaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closetaskModal">&times;</span>
+            <h2>Add New task</h2>
+            <form id="addtaskForm">
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" placeholder="Enter task name" required>
+
+                <label for="storyPoints">Story Points:</label>
+                <input type="number" id="storyPoints" placeholder="Enter story points" required>
+
+                <label for="priority">Priority:</label>
+                <select id="priority" required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="important">Important</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+
+                <label for="stage">Stage:</label>
+                <select id="stage" required>
+                    <option value="planning">Planning</option>
+                    <option value="development">Development</option>
+                    <option value="testing">Testing</option>
+                    <option value="integration">Integration</option>
+                </select>
+
+                <label for="tags">Tags:</label>
+                <div class="tag-checkbox-container">
+                    <label class="tag-checkbox-label"><input type="checkbox" name="tags" value="frontend"> <span>#frontend</span></label>
+                    <label class="tag-checkbox-label"><input type="checkbox" name="tags" value="backend"> <span>#backend</span></label>
+                    <label class="tag-checkbox-label"><input type="checkbox" name="tags" value="database"> <span>#database</span></label>
+                    <label class="tag-checkbox-label"><input type="checkbox" name="tags" value="testing"> <span>#testing</span></label>
+                    <label class="tag-checkbox-label"><input type="checkbox" name="tags" value="UI"> <span>#UI</span></label>
+                    <label class="tag-checkbox-label"><input type="checkbox" name="tags" value="UX"> <span>#UX</span></label>
+                    <label class="tag-checkbox-label"><input type="checkbox" name="tags" value="API"> <span>#API</span></label>
+                    <label class="tag-checkbox-label"><input type="checkbox" name="tags" value="Framework"> <span>#Framework</span></label>
+                </div>
+
+                <label for="userStory">User Story:</label>
+                <textarea id="userStory" rows="4" placeholder="Enter user story" required></textarea>
+                <button type="submit">Create task</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="addToSprintModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeSprintModal">&times;</span>
+            <h2>Select Tasks to Add to Current Sprint</h2>
+            <form id="sprintTaskForm">
+                <label>
+                    <input type="checkbox" value="1"> Task 1: Implement login functionality
+                </label>
+                <label>
+                    <input type="checkbox" value="2"> Task 2: Design landing page
+                </label>
+                <label>
+                    <input type="checkbox" value="3"> Task 3: Set up CI/CD pipeline
+                </label>
+                <button type="submit">Add to Sprint</button>
+            </form>
+        </div>
+    </div>
+
+
+        <div id="filterModal" class="modal">
+            <div class="filter-content">
+                <span class="close-filter">&times;</span>
+                <h2>Filter Options</h2>
+                <form id="filterForm">
+                    <label for="filterPriority">Priority:</label>
+                    <select id="filterPriority">
+                        <option value="">All</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="important">Important</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+
+                    <label for="filterStage">Stage:</label>
+                    <select id="filterStage">
+                        <option value="">All</option>
+                        <option value="planning">Planning</option>
+                        <option value="development">Development</option>
+                        <option value="testing">Testing</option>
+                        <option value="integration">Integration</option>
+                    </select>
+
+                    <label for="filterStoryPoints">Story Points (Minimum):</label>
+                    <input type="number" id="filterStoryPoints" placeholder="Enter minimum story points">
+
+                    <button type="button" id="applyFilters">Apply Filters</button>
+                </form>
+            </div>
+        </div>
+
+<div id="edittaskModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeEdittaskModal">&times;</span>
+        <h2>Edit Task</h2>
+        <form id="edittaskForm">
+            <label for="editTaskName">Task Name:</label>
+            <input type="text" id="editTaskName" required>
+
+            <label for="editStoryPoints">Story Points:</label>
+            <input type="number" id="editStoryPoints" required>
+
+            <label for="editPriority">Priority:</label>
+            <select id="editPriority" required>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="important">Important</option>
+                <option value="urgent">Urgent</option>
+            </select>
+
+            <label for="editStage">Stage:</label>
+            <select id="editStage" required>
+                <option value="planning">Planning</option>
+                <option value="development">Development</option>
+                <option value="testing">Testing</option>
+                <option value="integration">Integration</option>
+            </select>
+
+            <label for="editTags">Tags:</label>
+            <div class="tag-checkbox-container">
+                <label class="tag-checkbox-label"><input type="checkbox" name="editTags" value="frontend"> #frontend</label>
+                <label class="tag-checkbox-label"><input type="checkbox" name="editTags" value="backend"> #backend</label>
+                <label class="tag-checkbox-label"><input type="checkbox" name="editTags" value="database"> #database</label>
+                <label class="tag-checkbox-label"><input type="checkbox" name="editTags" value="testing"> #testing</label>
+                <label class="tag-checkbox-label"><input type="checkbox" name="editTags" value="UI"> #UI</label>
+                <label class="tag-checkbox-label"><input type="checkbox" name="editTags" value="UX"> #UX</label>
+                <label class="tag-checkbox-label"><input type="checkbox" name="editTags" value="API"> #API</label>
+                <label class="tag-checkbox-label"><input type="checkbox" name="editTags" value="Framework"> #Framework</label>
+            </div>
+
+            <label for="editUserStory">User Story:</label>
+            <textarea id="editUserStory" rows="4"></textarea>
+
+            <button type="submit">Update Task</button>
+        </form>
+    </div>
+</div>
+    <script src="js/backlog.js"></script>
+    <script src="js/fontSize.js"></script> 
+<div id="toast" class="toast"></div>
+</body>
+</html>

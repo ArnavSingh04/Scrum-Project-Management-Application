@@ -1,0 +1,205 @@
+/* Reset and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in the total width and height */
+}
+
+body {
+    background-image: url('../images/background_final.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    color: #333; /* Darker text color for better readability */
+    font-size: 1em; /* Base font size for scalability */
+    transition: font-size 0.3s ease-in-out; /* Smooth transition for font size changes */
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Wrapper to center both the logo and the login box */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    background-color: rgba(255, 255, 255, 0.6); /* Light white overlay for a cleaner look */
+}
+
+/* Center the logo and motto at the top */
+.header {
+    text-align: center;
+    margin-bottom: 2.5em; /* Scalable margin */
+    background-color: transparent; /* Ensure there is no background color */
+}
+
+/* Logo styling */
+.company-logo {
+    width: 9.375em; /* Scalable width */
+    margin-bottom: 0.625em; /* Scalable margin */
+}
+
+/* Motto styling */
+.motto {
+    font-size: 1.125em; /* Scalable font size */
+    color: #333; /* Darker text for better contrast */
+    margin-bottom: 1.25em; /* Scalable margin */
+    font-style: italic;
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 2.5em; /* Scalable padding */
+    border-radius: 0.625em; /* Scalable border radius */
+    box-shadow: 0px 0.625em 1.25em rgba(0, 0, 0, 0.1); /* Softer shadow */
+    width: 25em; /* Scalable width */
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Ensure everything stacks vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+h2 {
+    margin-bottom: 1.25em; /* Scalable margin */
+    font-size: 1.5em; /* Scalable font size */
+    color: #333; /* Darker heading color */
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 1.875em; /* Scalable margin */
+    width: 100%; /* Ensures the input box takes full width */
+}
+
+.input-box input {
+    width: 100%;
+    padding: 0.625em; /* Scalable padding */
+    background: transparent;
+    border: none;
+    border-bottom: 0.125em solid #333; /* Darker bottom border */
+    outline: none;
+    color: #333; /* Darker text inside inputs */
+    font-size: 1em; /* Scalable font size */
+}
+
+.input-box label {
+    position: absolute;
+    top: 0.625em; /* Scalable position */
+    left: 0;
+    color: #666; /* Light gray for labels */
+    transition: 0.5s;
+    font-size: 1em; /* Scalable font size */
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -1.25em; /* Scalable position */
+    color: #333; /* Darker label on focus */
+    font-size: 0.75em; /* Scalable font size */
+}
+
+button {
+    width: 100%;
+    padding: 0.625em; /* Scalable padding */
+    background-color: #f1f1f1; /* Lighter button background */
+    border: none;
+    border-radius: 0.3125em; /* Scalable border radius */
+    color: #333; /* Darker text on buttons */
+    font-size: 1em; /* Scalable font size */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e1e1e1; /* Slightly darker on hover */
+}
+
+.remember {
+    text-align: left;
+    margin-bottom: 1em; /* Scalable margin */
+}
+
+.forgot-password {
+    margin-top: 1.25em; /* Scalable margin */
+}
+
+.forgot-password a {
+    color: #333; /* Darker links */
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.admin-login {
+    margin-top: 1.25em; /* Scalable margin */
+    text-align: center; /* Centers the link */
+}
+
+.admin-login a {
+    display: inline-block;
+    padding: 0.625em 1.25em; /* Scalable padding */
+    background-color: #ccc; /* Light gray for the admin button */
+    color: #333;
+    text-decoration: none;
+    border-radius: 0.3125em; /* Scalable border radius */
+    font-size: 1em; /* Scalable font size */
+}
+
+.admin-login a:hover {
+    background-color: #bbb; /* Slightly darker on hover */
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 1.25em; /* Scalable padding */
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 25em; /* Scalable max-width */
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 1.75em; /* Scalable close button size */
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .login-box {
+        width: 90%; /* Make the login box take more width on smaller screens */
+        padding: 2em; /* Scalable padding */
+    }
+}

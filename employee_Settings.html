@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Employee Settings</title>
+    <link rel="stylesheet" href="css/employee_styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="projects.html">All Projects</a></li>
+                <li><a href="index.html">Current Sprint Board</a></li>
+                <li><a href="backlog.html">Backlog</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="all_sprint.html">All Sprints</a></li>
+                <li><a href="employee_Settings.html">Settings</a></li>
+                <li><a href="mainLoginPage.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="settings">
+        <h2>Settings</h2>
+        <ul class="settings-list">
+            <li><a href="#" id="change-password">Change Password</a></li>
+        </ul>
+
+        <!-- Font size buttons -->
+        <div class="font-size-setting">
+            <h2>Adjust Font Size</h2>
+            <button id="fontStandard">Standard</button>
+            <button id="font25Increase">25% Increase</button>
+            <button id="font50Increase">50% Increase</button>
+        </div>
+    </section>
+
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Change Password</h3>
+            <form id="passwordForm">
+                <label for="currentPassword">Current Password:</label>
+                <input type="password" id="currentPassword" name="currentPassword" required>
+
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+
+                <button type="submit">Change Password</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/employee_settings.js"></script>
+    <script src="js/fontSize.js"></script> <!-- Link to font size JavaScript file -->
+</body>
+</html>

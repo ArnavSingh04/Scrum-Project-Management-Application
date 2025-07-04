@@ -1,0 +1,350 @@
+/* General Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/background_final.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover;
+    color: black; /* Set all text to black */
+}
+
+.header {
+    color: black; /* Changed header text to black */
+    text-align: center;
+    padding: 0.625em 0; /* Adjusted padding */
+}
+
+h1 {
+    font-size: 2.5em; /* Scalable font size */
+    color: black; /* Ensure h1 is black */
+}
+
+.sub-heading-bar {
+    display: flex;
+    justify-content: center;
+    background-color: white; /* White background for sub-heading */
+    padding: 0.625em 0;
+}
+
+#reports-section {
+    display: none; /* Keep this as is */
+}
+
+#username,
+#password {
+    padding: 0.625em; /* Converted to em for scalability */
+    margin: 0.625em 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0.0625em solid #ccc; /* Added border for inputs */
+    border-radius: 0.3125em; /* Added border radius */
+    font-size: 1em; /* Scalable font size */
+}
+
+input[type="submit"] {
+    background-color: black; /* Set submit button background to black */
+    color: white; /* White text */
+    padding: 0.625em; /* Converted to em for scalability */
+    border: none;
+    cursor: pointer;
+    border-radius: 0.3125em; /* Added border radius */
+    transition: background-color 0.3s ease; /* Added transition */
+    font-size: 1em; /* Scalable font size */
+}
+
+input[type="submit"]:hover {
+    background-color: #333; /* Darker shade of black on hover */
+}
+
+.btn:hover {
+    background-color: #333; /* Darker shade of black on hover */
+}
+
+/* Updated nav bar styles */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white; /* White background */
+}
+
+.navbar ul li {
+    float: left;
+}
+
+.navbar ul li a {
+    display: block;
+    color: black; /* Text color set to black */
+    text-align: center;
+    padding: 0.875em 1em; /* Converted to em for scalability */
+    text-decoration: none;
+    font-size: 1em; /* Scalable font size */
+}
+
+.navbar ul li a:hover {
+    background-color: #ddd; /* Slightly lighter hover background */
+}
+
+.header h2 {
+    margin-top: 1.25em; /* Scalable margin */
+    font-size: 1.5em; /* Scalable font size */
+}
+
+.container {
+    padding: 1.25em; /* Converted to em for scalability */
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly less translucent background */
+    box-shadow: 0px 0px 0.625em rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    border-radius: 0.625em; /* Optional: Add rounded corners */
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25em; /* Scalable margin */
+}
+
+#searchUser {
+    padding: 0.3125em; /* Converted to em for scalability */
+    width: 12.5em; /* Scalable width */
+}
+
+button {
+    padding: 0.625em; /* Converted to em for scalability */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em; /* Scalable font size */
+}
+
+button:hover {
+    background-color: #45a049; /* Darker shade on hover */
+}
+
+/* User table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 0.0625em solid black; /* Scalable border */
+    padding: 0.625em; /* Scalable padding */
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Modal (Pop-up) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 1.25em; /* Converted to em for scalability */
+    border: 0.0625em solid #888; /* Scalable border */
+    width: 18.75em; /* Scalable width */
+    max-width: 90%; /* Responsive max width */
+}
+
+.close {
+    float: right;
+    font-size: 1.5em; /* Scalable font size */
+    cursor: pointer;
+}
+
+.user-list {
+    margin-top: 1.25em; /* Scalable margin */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-list th,
+.user-list td {
+    border: 0.0625em solid #ddd; /* Scalable border */
+    padding: 0.5em; /* Scalable padding */
+}
+
+.user-list th {
+    background-color: #f2f2f2;
+}
+
+.btn {
+    padding: 0.5em 0.75em; /* Scalable padding */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em; /* Scalable font size */
+}
+
+.btn.delete {
+    background-color: #f44336;
+}
+
+.btn.show-password {
+    background-color: #007bff;
+}
+
+.search-box {
+    padding: 0.625em; /* Converted to em for scalability */
+    margin-right: 1.25em; /* Scalable margin */
+    font-size: 1em; /* Scalable font size */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.0625em solid #ddd; /* Scalable border */
+    padding: 1.25em; /* Converted to em for scalability */
+    background-color: white;
+    z-index: 1000;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.popup input {
+    display: block;
+    margin-bottom: 0.625em; /* Scalable margin */
+    padding: 0.5em; /* Scalable padding */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.password-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.password-text {
+    margin-right: 0.625em; /* Scalable margin */
+}
+
+/* Centralizing the reports content */
+.reports-content {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    padding: 1em;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+    border-radius: 0.625em;
+}
+
+.sprint-dropdown {
+    text-align: center;
+    background-color: white;
+    padding: 1em 2em;
+    border-radius: 0.625em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the modal and its content */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker backdrop for focus */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto; /* Centrally aligned vertically with some margin */
+    padding: 2em; /* Larger padding for content spacing */
+    border: 0.125em solid #888; /* Thicker border */
+    width: 40em; /* Adjusted width for larger pop-up */
+    max-width: 80%; /* Responsive sizing */
+    border-radius: 0.625em;
+}
+
+/* Close button styling */
+.close {
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styling the table inside the modal */
+.modal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+.modal-content th,
+.modal-content td {
+    border: 0.0625em solid #ddd;
+    padding: 0.75em;
+    text-align: left;
+}
+
+.modal-content th {
+    background-color: #f4f4f4;
+}
+
+/* Section styling inside the modal */
+.report-section {
+    margin-top: 2em;
+}
+
+/* Styling for the canvas (chart) in the modal */
+#time-logged-chart {
+    width: 100%;
+    height: 20em; /* Increased height for better visibility */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 1.25em;
+    }
+
+    .modal-content table,
+    #time-logged-chart {
+        width: 100%;
+    }
+}

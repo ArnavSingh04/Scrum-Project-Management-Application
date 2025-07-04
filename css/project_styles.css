@@ -1,0 +1,362 @@
+/* General Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    background: url('../images/background_final.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 0.625em 0; /* 10px */
+}
+
+h1 {
+    font-size: 2.5em; /* 40px */
+}
+
+/* Updated nav bar styles */
+nav.main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white; /* White background */
+    margin-left: -0.625em; /* -10px */
+}
+
+nav.main-nav ul li {
+    float: left;
+}
+
+nav.main-nav ul li a {
+    display: block;
+    color: black; /* Text color set to black */
+    text-align: center;
+    padding: 0.875em 1em; /* 14px 16px */
+    text-decoration: none;
+}
+
+nav.main-nav ul li a:hover {
+    background-color: #ddd; /* Slightly lighter hover background */
+}
+
+nav.main-nav {
+    position: relative;
+    z-index: 100;
+    padding: 0.625em; /* 10px */
+    background-color: white;
+}
+
+#projects {
+    padding: 1.875em; /* 30px */
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 2em; /* 32px */
+    margin-bottom: 1.25em; /* 20px */
+    color: black; /* Fixing the typo "bla" to "black" */
+}
+
+.filter-section {
+    margin-bottom: 1.25em; /* 20px */
+}
+
+.filter-section input {
+    padding: 0.625em; /* 10px */
+    width: 12.5em; /* 200px */
+    margin-right: 0.625em; /* 10px */
+    border: 1px solid #ccc;
+    border-radius: 0.3125em; /* 5px */
+}
+
+.filter-section button {
+    padding: 0.625em 1.25em; /* 10px 20px */
+    background-color: black; /* Change blue to black */
+    color: white;
+    border: none;
+    border-radius: 0.3125em; /* 5px */
+    cursor: pointer;
+    font-size: 1em; /* 16px */
+    transition: background-color 0.3s ease;
+}
+
+.filter-section button:hover {
+    background-color: #333; /* Darker shade of black on hover */
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#projectDetails {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 1em;
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    margin: 0.5em 0;
+    font-size: 1.1em;
+    color: #666;
+}
+
+.project-card a {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 0.625em; /* 10px */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto; /* Ensure that content is scrollable if needed */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto; /* Centers modal vertically */
+    padding: 1.25em; /* 20px */
+    width: 90%; /* Adjust width as needed */
+    max-width: 37.5em; /* 600px */
+    border-radius: 0.625em; /* 10px */
+    color: black;
+    position: relative;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.modal-content label {
+    display: block;
+    margin: 0.625em 0; /* 10px */
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="date"],
+.modal-content textarea,
+.modal-content select {
+    width: calc(100% - 1.25em); /* Adjust width to account for padding */
+    padding: 0.625em; /* 10px */
+    margin-bottom: 0.9375em; /* 15px */
+    border: 1px solid #ccc;
+    border-radius: 0.3125em; /* 5px */
+}
+
+textarea {
+    height: 6.25em; /* 100px */
+}
+
+button[type="submit"] {
+    background-color: black; /* Change blue to black */
+    color: white;
+    padding: 0.625em 0.9375em; /* 10px 15px */
+    border: none;
+    cursor: pointer;
+    border-radius: 0.3125em; /* 5px */
+    font-size: 1em; /* 16px */
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #333; /* Darker shade of black on hover */
+}
+
+.close {
+    position: absolute;
+    right: 0.625em; /* 10px */
+    top: 0.625em; /* 10px */
+    cursor: pointer;
+    font-size: 1.5em; /* 24px */
+    color: #333;
+}
+
+.delete-btn {
+    font-size: 0.75em; /* 12px */
+    color: red; /* Optional: Red color for delete */
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.625em; /* 10px */
+}
+
+.delete-btn:hover {
+    text-decoration: underline; /* Optional: Underline on hover */
+}
+
+.profile-container {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+}
+
+.profile {
+    background-color: white;
+    color: black; /* Changed to black for profile text */
+    padding: 0.75em 1em; /* 12px 16px */
+    border: 1px solid #ccc;
+    border-radius: 0.3125em; /* 5px */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* 16px */
+}
+
+.profile:hover {
+    background-color: #ddd; /* Light gray on hover */
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    z-index: 20000;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f2f2f2; /* Lighter shade for dropdown */
+    min-width: 10em; /* 160px */
+    box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+}
+
+.dropdown-content a {
+    color: black; /* Dropdown menu text color set to black */
+    padding: 0.75em 1em; /* 12px 16px */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #e0e0e0; /* Slightly lighter hover effect */
+}
+
+/* Show the dropdown when hovering over the profile button */
+.profile-container:hover .dropdown-content {
+    display: block;
+}
+
+.show {
+    display: block;
+}
+.project-details {
+    padding: 20px;
+    text-align: left;
+}
+
+.project-details h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.project-details p {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.project-buttons {
+    margin-top: 20px;
+}
+
+.nav-button.large-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-button.large-btn:hover {
+    background-color: #45a049;
+}
+
+.nav-button.large-btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-content .close:hover,
+.modal-content .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

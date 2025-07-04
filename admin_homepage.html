@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - User Management</title>
+    <link rel="stylesheet" href="css/admin_styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="admin_homepage.html">All Employees</a></li>
+                <li><a href="employee_reports.html">View Reports</a></li>
+                <li><a href="admin_login.html">Logout</a></li>
+            </ul>
+        </nav>
+        <div class="header">
+            <h2>Welcome, Admin</h2>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="header">
+            <input type="text" id="searchUser" class="search-box" placeholder="Search User by Name">
+            <button class="btn" id="addUserBtn">Add New User</button>
+        </div>
+    
+        <table class="user-list">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <!-- Dynamic user list will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    
+
+    <!-- Add User Popup -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popupForm">
+        <h3>Add New User</h3>
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="email" id="email" placeholder="Enter Email">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button class="btn" id="saveUserBtn">Save User</button>
+    </div>
+
+    <script src="js/fontSize.js"></script> <!-- Add your JS file link here -->
+    <script>
+        // Retrieve users from local storage or initialize an empty array
+let users = JSON.parse(localStorage.getItem('usersDB')) || [];
+
+// Function to populate user list in the table
+function populateUserTable(filter = '') {
+    const userTableBody = document.getElementById('userTableBody');
+    userTableBody.innerHTML = ''; // Clear existing content
+
+    users.forEach((user, index) => {
+        // Check if the username matches the filter (case insensitive)
+        if (user.username.toLowerCase().includes(filter.toLowerCase())) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${user.username}</td>
+                <td>${user.email}</td>
+                <td>${user.password}</td>
+                <td>
+                    <button onclick="deleteUser(${index})">Delete</button>
+                </td>
+            `;
+            userTableBody.appendChild(row);
+        }
+    });
+}
+
+// Function to handle adding a new user
+function handleAddUser() {
+    const username = prompt("Enter username:");
+    const email = prompt("Enter email:");
+    const password = prompt("Enter password:");
+
+    if (username && email && password) {
+        const newUser = {
+            username: username,
+            email: email,
+            password: password,
+        };
+
+        users.push(newUser); // Add new user to the array
+        saveUsersToStorage(users); // Save updated users array to local storage
+        populateUserTable(); // Update the displayed user list
+    } else {
+        alert('All fields are required!');
+    }
+}
+
+// Function to save users to local storage
+function saveUsersToStorage(users) {
+    localStorage.setItem('usersDB', JSON.stringify(users));
+}
+
+// Function to delete a user
+function deleteUser(index) {
+    users.splice(index, 1); // Remove user from the array
+    saveUsersToStorage(users); // Update local storage
+    populateUserTable(); // Refresh the displayed user list
+}
+
+// Function to handle user search
+function handleSearch() {
+    const filter = document.getElementById('searchUser').value;
+    populateUserTable(filter); // Call populateUserTable with the search filter
+}
+
+// Event listener for the "Add New User" button
+document.getElementById('addUserBtn').addEventListener('click', handleAddUser);
+
+// Event listener for the search input
+document.getElementById('searchUser').addEventListener('input', handleSearch);
+
+// Initial population of the user table
+populateUserTable();
+
+    </script>
+
+</body>
+</html>

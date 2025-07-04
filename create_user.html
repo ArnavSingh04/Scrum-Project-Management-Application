@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User Credentials</title>
+    <link rel="stylesheet" href="css/admin_styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Create User Credentials</h1>
+    </div>
+
+    <div class="content-section">
+        <h2>Generate User Credentials</h2>
+        <form onsubmit="handleCreateUser()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password" placeholder="Random password"><br><br>
+
+            <button type="submit">Create User</button>
+        </form>
+    </div>
+    <script src="./js/admin.js"></script>
+    <script src="js/fontSize.js"></script>
+</body>
+</html>
